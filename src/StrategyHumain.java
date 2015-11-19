@@ -1,6 +1,11 @@
 public class StrategyHumain implements Strategy {
 
-	public void choisirDemanderCarte(int somme) {
+	@Override
+	public boolean deciderDemanderCarte(int somme) {
+		// TODO Auto-generated method stub
+		
+		return false;
 	}
+
 
 }

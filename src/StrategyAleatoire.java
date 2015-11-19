@@ -1,6 +1,9 @@
 public class StrategyAleatoire implements Strategy {
 
-	public void choisirDemanderCarte(int somme) {
+	@Override
+	public boolean deciderDemanderCarte(int somme) {
+		// TODO Auto-generated method stub
+		return Math.random() < 0.5 ? true : false;
 	}
 
 }

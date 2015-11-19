@@ -1,6 +1,6 @@
 
 public interface Strategy {
 
-  public void choisirDemanderCarte(int somme);
+  public boolean deciderDemanderCarte(int somme);
 
 }
