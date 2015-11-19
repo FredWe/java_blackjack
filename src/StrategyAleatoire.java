@@ -1,6 +1,6 @@
-public class StrategyAleatoire implements Strategy, Strategy {
+public class StrategyAleatoire implements Strategy {
 
-	public void choisirDemanderCarte() {
+	public void choisirDemanderCarte(int somme) {
 	}
 
 }

@@ -15,7 +15,6 @@ public abstract class AbstractJoueur {
 	 * 
 	 * @element-type Carte
 	 */
-	public Vector Possède;
 
 	public void choisirStrategy() {
 	}

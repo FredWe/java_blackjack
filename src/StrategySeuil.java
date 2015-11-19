@@ -2,7 +2,7 @@ public class StrategySeuil implements Strategy {
 
   public Integer seuil;
 
-  public void choisirDemanderCarte( somme) {
+  public void choisirDemanderCarte(int somme) {
   }
 
   public void setSeuil() {
