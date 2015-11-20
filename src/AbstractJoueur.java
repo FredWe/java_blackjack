@@ -1,4 +1,6 @@
 import java.util.Vector;
+import java.util.Scanner;
+import java.util.*;
 
 public abstract class AbstractJoueur {
 
@@ -15,10 +17,14 @@ public abstract class AbstractJoueur {
 
 	public void choisirStrategy(){
         
+        int i;
+        
         System.out.println("Choisir votre strategy!!!");
         System.out.println("Choix 1: strategy Aléatoire");
         System.out.println("Choix 2: strategy Seuil");
         System.out.println("Choix 3: strategy Humain");
+        
+        
         
         
 	}

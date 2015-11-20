@@ -11,7 +11,10 @@ public class StrategySeuil implements Strategy {
   }
 
 
-	public boolean deciderDemanderCarte(int somme) {
+
+	@Override
+	public boolean deciderDemanderCarte(Integer somme) {
+		// TODO Auto-generated method stub
 		return false;
 	}
 
