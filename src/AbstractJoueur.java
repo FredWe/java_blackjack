@@ -3,44 +3,29 @@ import java.util.Scanner;
 import java.util.*;
 
 public abstract class AbstractJoueur {
-
-	public Vector<Carte> carte;
-
-	public String resultat;
+	
+	public Boolean enableNouvelleCarte; //demander nouvelle carte ou pas
+	public String resultat; //"Win","Lost","Tie" (to Banque)
 
 	public Integer somme;
 
 	public Strategy myStrategy;
-	public Vector DistribuerLaCarte;
+
 	public Vector<Carte> myCarte;
 	
 
-	public void choisirStrategy(){
-        
-        int i;
-        System.out.println("Choisir votre strategy!!!");
-        System.out.println("Choix 1: strategy Aléatoire");
-        System.out.println("Choix 2: strategy Seuil");
-        System.out.println("Choix 3: strategy Humain");
-        
-        Scanner sc= new Scanner(System.in);
-        i=sc.nextInt();
-        
-        switch(i){
-                
-            case 1:
-                System.out.println("Vous avez choisi le strategy Aléatoire");
-                // Strategy Aleatoire
-            case 2:
-                System.out.println("Vous avez choisi le strategy Seuil");
-                // Strategy Seuil
-            case 3:
-                System.out.println("Vous avez choisi le strategy Humain");
-                // Strategy Humain
-            default:
-                System.out.println("Bien saisir le chiffre.");
-                break;
-        }
+	public void choisirStrategy(String str) throws IllegalArgumentException { //"Aleatoire","Seuil","Humain"
+		switch (str.toUpperCase()){
+			case "ALEATOIRE" :
+				break;
+			case "SEUIL" :
+				break;
+			case "HUMAIN" :
+				break;
+			default :
+				throw new IllegalArgumentException("Le Strategie doit etre compris dans {\"Aleatoire\",\"Seuil\",\"Humain\"}");
+		}
+
         
 	}
     
@@ -49,7 +34,7 @@ public abstract class AbstractJoueur {
 	}
 
 	public void arreterDeDemanderCarte(){
-        
+
 	}
 
 	public int calculerSomme(){
