@@ -10,6 +10,7 @@ public abstract class AbstractJoueur {
 	public Integer somme;
 
 	public Strategy myStrategy;
+
 	public Vector<Carte> myCarte;
 	
 
@@ -24,20 +25,22 @@ public abstract class AbstractJoueur {
 			default :
 				throw new IllegalArgumentException("Le Strategie doit etre compris dans {\"Aleatoire\",\"Seuil\",\"Humain\"}");
 		}
+
         
 	}
+    
 	public void demanderCarte() {
         
 	}
 
 	public void arreterDeDemanderCarte(){
-    
+
 	}
 
 	public int calculerSomme(){
         
-        for(int i=0;i<sizeof(myCarte);i++)){
-            somme=somme+myCarte(i).getValeur();
+        for(int i=0;i<myCarte.capacity() ;i++){
+            somme=somme+myCarte.elementAt(i).getValeur();
         }
         return somme;
 	}

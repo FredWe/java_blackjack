@@ -8,10 +8,15 @@ public class Jeu {
 
 	public Joueur joueur;
 
-
 	public Vector myJoueur;
 
-	public void calculerResultat() {
+	
+    public void calculerResultat(){
+        
+        
+        
+        
+        
 	}
 
 }
