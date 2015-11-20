@@ -8,10 +8,7 @@ public class Jeu {
 
 	public Joueur joueur;
 
-	/**
-	 * 
-	 * @element-type Joueur
-	 */
+
 	public Vector myJoueur;
 
 	public void calculerResultat() {

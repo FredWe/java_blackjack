@@ -2,7 +2,7 @@ import java.util.Vector;
 
 public abstract class AbstractJoueur {
 
-	public java.util.Vector<Carte> carte;
+	public Vector<Carte> carte;
 
 	public String resultat;
 
@@ -11,21 +11,31 @@ public abstract class AbstractJoueur {
 	public Strategy myStrategy;
 	public Vector DistribuerLaCarte;
 	public Vector myCarte;
-	/**
-	 * 
-	 * @element-type Carte
-	 */
+	
 
-	public void choisirStrategy() {
+	public void choisirStrategy(){
+        
+        System.out.println("Choisir votre strategy!!!");
+        System.out.println("Choix 1: strategy Aléatoire");
+        System.out.println("Choix 2: strategy Seuil");
+        System.out.println("Choix 3: strategy Humain");
+        
+        
 	}
-
 	public void demanderCarte() {
+        
 	}
 
-	public void arreterDeDemanderCarte() {
+	public int arreterDeDemanderCarte(){
+    
 	}
 
-	public void calculerSomme() {
+	public int calculerSomme(){
+        
+        for(int i=0;i<sizeof(myCarte);i++)){
+            somme=somme+myCarte(i).getValeur();
+        }
+        return somme;
 	}
 
 }
