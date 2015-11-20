@@ -19,5 +19,4 @@ public class StrategyHumain implements Strategy {
 		}
 	}
 
-
 }

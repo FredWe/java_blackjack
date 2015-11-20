@@ -9,7 +9,6 @@ public class StrategySeuil implements Strategy {
 	  return this.seuil;
   }
 
-
 	@Override
 	public boolean deciderDemanderCarte(Integer somme) {
 		return (somme < this.seuil) ? true : false;
