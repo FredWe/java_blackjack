@@ -12,9 +12,9 @@ public class Cropier {
       int i,t;
       Random rand =new Random();
       i=rand.nextInt(51);
-      t=sizeof(v.myCarte);
+      t=v.myCarte.capacity();
       v.myCarte.setSize(t+1);
-      v.myCarte.add(myCarte(i));
+      v.myCarte.add(myCarte.elementAt(i));
       this.myCarte.removeElement(i);
   }
 
