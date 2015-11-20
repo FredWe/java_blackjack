@@ -3,36 +3,34 @@ import java.util.Scanner;
 import java.util.*;
 
 public abstract class AbstractJoueur {
-
-	public Vector<Carte> carte;
-
-	public String resultat;
+	
+	public Boolean enableNouvelleCarte; //demander nouvelle carte ou pas
+	public String resultat; //"Win","Lost","Tie" (to Banque)
 
 	public Integer somme;
 
 	public Strategy myStrategy;
-	public Vector DistribuerLaCarte;
-	public Vector myCarte;
+	public Vector<Carte> myCarte;
 	
 
-	public void choisirStrategy(){
-        
-        int i;
-        
-        System.out.println("Choisir votre strategy!!!");
-        System.out.println("Choix 1: strategy Aléatoire");
-        System.out.println("Choix 2: strategy Seuil");
-        System.out.println("Choix 3: strategy Humain");
-        
-        
-        
+	public void choisirStrategy(String str) throws IllegalArgumentException { //"Aleatoire","Seuil","Humain"
+		switch (str.toUpperCase()){
+			case "ALEATOIRE" :
+				break;
+			case "SEUIL" :
+				break;
+			case "HUMAIN" :
+				break;
+			default :
+				throw new IllegalArgumentException("Le Strategie doit etre compris dans {\"Aleatoire\",\"Seuil\",\"Humain\"}");
+		}
         
 	}
 	public void demanderCarte() {
         
 	}
 
-	public int arreterDeDemanderCarte(){
+	public void arreterDeDemanderCarte(){
     
 	}
 
