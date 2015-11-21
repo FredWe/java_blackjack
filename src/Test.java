@@ -13,6 +13,10 @@ public class Test {
         Cropier nvCrop=new Cropier();
         nvCrop.initCarte();
         
+        Banque bq=new Banque();
+            
+            
+        
         // Choisir nombre de personnes.
             
     
@@ -45,22 +49,28 @@ public class Test {
             System.out.println("---------------------------------------");
             System.out.println("");
             
-            Carte uneCarte = new Carte();
-            uneCarte.setValeur(0);
-            uneCarte.setEnseigne("toto");
-            uneCarte.setValeur(1);
-            uneCarte.setEnseigne("carrEau");
-            System.out.println("Valeur : " + uneCarte.getValeur());
-            System.out.println("Enseigne : " + uneCarte.getEnseigne());
-           
+            
+            /* for(int jj=0;jj<52;jj++){
+                System.out.println("La valeur de carte est: " +nvCrop.myCarte.get(jj).getValeur() );
+            }*/
+            
+            
+            nvCrop.distribuerCarte(j1);
+            nvCrop.distribuerCarte(j2);
+            nvCrop.distribuerCarte(j2);
+            nv.calculerResultat(j1);
+            nv.calculerResultat(j2);
+            
+            
+            
+            
+            
+            
             
             //Object set(int index, Object element)
             //void add(int index, Object element)
-        
-            
             //String str=j1.getNom();
             //System.out.println("le nom de joueur" + str);
-            
             //j1.myCarte.set(0,1);
             //j1.myCarte.set(1,21);
             //nv.calculerResultat(j1);
@@ -69,25 +79,3 @@ public class Test {
     
 }
 
-
-/*
-	public static void main(String[] args) {
- // TODO Auto-generated method stub
- System.out.println("Hello world, Let's begin\n");
- Carte uneCarte = new Carte();
- try{
- uneCarte.setValeur(0);
- }catch(IllegalArgumentException e){
- System.out.println(e);
- }
- try{
- uneCarte.setEnseigne("toto");
- }catch(IllegalArgumentException e){
- System.out.println(e);
- }
- uneCarte.setValeur(1);
- uneCarte.setEnseigne("carrEau");
- System.out.println("Valeur : " + uneCarte.getValeur());
- System.out.println("Enseigne : " + uneCarte.getEnseigne());
-	}
- */

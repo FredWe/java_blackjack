@@ -53,7 +53,6 @@ public class Jeu {
             else{
                 System.out.println("Match NULL");
                  v.resultat="Tie";
-                
             }
             
         }
@@ -62,18 +61,15 @@ public class Jeu {
             if(v.calculerSomme() == banque.calculerSomme()){
                 System.out.println("Match NULL");
                 v.resultat="Tie";
-                
             }
             else if(v.calculerSomme()<banque.calculerSomme() || v.calculerSomme()>21){
                 System.out.println("Vous avez perdu");
                 v.resultat="Lost";
                 
-                
             }
             else if(v.calculerSomme()<=21&&v.calculerSomme()<banque.calculerSomme()){
                 System.out.println("Joueur" + v.getNom() + "a gagné");
                 v.resultat="Win";
-            
             }
             else return;
                 
