@@ -1,21 +1,18 @@
 import java.util.Vector;
 import java.util.*;
 
-
 public class Cropier {
 
   public Vector<Carte>  myCarte;
 
   public void distribuerCarte(AbstractJoueur v){
-      
       //int i,t;
-      
       int i;
-      Random rand =new Random();
-      i=rand.nextInt(51);
+      Random rand = new Random();
+      i = rand.nextInt(this.myCarte.size() - 1); // To generate a random number between [0, myCarte.size - 1]
       //t=v.myCarte.capacity();
       //v.myCarte.setSize(t+1);
-    //  System.out.println("la valeur de rand" + i) ;
+      //System.out.println("la valeur de rand" + i) ;
       Carte thisCarte = this.myCarte.elementAt(i);
      /* System.out.println("E : " + thisCarte.getEnseigne()) ;
       System.out.println("V : " + thisCarte.getValeur()) ;
