@@ -12,8 +12,8 @@ public class Test {
         
         Cropier nvCrop=new Cropier();
         nvCrop.initCarte();
+        Banque bq=new Banque(new StrategyAleatoire());
         
-        Banque bq=new Banque();
             
             
         
@@ -33,12 +33,12 @@ public class Test {
                     
             case 1:
                 System.out.println("Vous avez choisi une personnes");
-                j= new Joueur();
+                j= new Joueur(new StrategyAleatoire());
                 break;
             case 2:
                 System.out.println("Vous avez choisi deux personnes");
-                j1= new Joueur();
-                j2= new Joueur();
+                j1= new Joueur(new StrategyAleatoire());
+                j2= new Joueur(new StrategyAleatoire());
                 break;
             default:
                 System.out.println("Bien saisir le chiffre svp.");
@@ -61,9 +61,9 @@ public class Test {
             nvCrop.distribuerCarte(bq);
             nvCrop.distribuerCarte(bq);
             
-            System.out.println("La valeur de carte est: " +j2.myCarte.get(0).getValeur());
-            System.out.println("La valeur de carte est: " +j2.myCarte.get(1).getValeur());
-            System.out.println("Le somme de carte est: " +j2.calculerSomme());
+            System.out.println("La valeur de carte est: " +bq.myCarte.get(0).getValeur());
+            System.out.println("La valeur de carte est: " +bq.myCarte.get(1).getValeur());
+            System.out.println("Le somme de carte est: " +bq.calculerSomme());
             
             
             nv.calculerResultat(j1);
