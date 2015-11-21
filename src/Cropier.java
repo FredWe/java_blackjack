@@ -15,12 +15,12 @@ public class Cropier {
       i=rand.nextInt(51);
       //t=v.myCarte.capacity();
       //v.myCarte.setSize(t+1);
-      System.out.println("la valeur de rand" + i) ;
+    //  System.out.println("la valeur de rand" + i) ;
       Carte thisCarte = this.myCarte.elementAt(i);
-      System.out.println("E : " + thisCarte.getEnseigne()) ;
+     /* System.out.println("E : " + thisCarte.getEnseigne()) ;
       System.out.println("V : " + thisCarte.getValeur()) ;
       System.out.println("VV : " + v) ;
-      System.out.println("V myCarte : " + v.myCarte) ;
+      System.out.println("V myCarte : " + v.myCarte) ;*/
       v.myCarte.addElement(thisCarte);
       this.myCarte.removeElement(i);
   }

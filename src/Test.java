@@ -56,32 +56,48 @@ public class Test {
             
             nvCrop.initCarte();
             nvCrop.distribuerCarte(j1);
+            nvCrop.distribuerCarte(j1);
+            nvCrop.distribuerCarte(j1);
+            nvCrop.distribuerCarte(j2);
             nvCrop.distribuerCarte(j2);
             nvCrop.distribuerCarte(j2);
             nvCrop.distribuerCarte(bq);
             nvCrop.distribuerCarte(bq);
-            
-            System.out.println("La valeur de carte est: " +bq.myCarte.get(0).getValeur());
-            System.out.println("La valeur de carte est: " +bq.myCarte.get(1).getValeur());
-            System.out.println("Le somme de carte est: " +bq.calculerSomme());
-            
-            
-            nv.calculerResultat(j1);
-            nv.calculerResultat(j2);
+            nvCrop.distribuerCarte(bq);
             
             
             
+           ///j1
+            
+            System.out.println("La valeur de "+ j1.getNom()+" est:  " +j1.myCarte.get(0).getValeur());
+            System.out.println("La valeur de "+ j1.getNom()+" est:  " +j1.myCarte.get(1).getValeur());
+            System.out.println("Le somme de "+ j1.getNom()+" est:   " +j1.calculerSomme());
+            
+            System.out.println("");
+            System.out.println("---------------------------------------");
+            System.out.println("");
+            //j2
             
             
+            System.out.println("La valeur de "+ j2.getNom()+" est:  " +j2.myCarte.get(0).getValeur());
+            System.out.println("La valeur de "+ j2.getNom()+" est:  " +j2.myCarte.get(1).getValeur());
+            System.out.println("Le somme de "+ j2.getNom()+" est:   " +j2.calculerSomme());
             
+            System.out.println("");
+            System.out.println("---------------------------------------");
+            System.out.println("");
+            //Banque
             
-            //Object set(int index, Object element)
-            //void add(int index, Object element)
-            //String str=j1.getNom();
-            //System.out.println("le nom de joueur" + str);
-            //j1.myCarte.set(0,1);
-            //j1.myCarte.set(1,21);
-            //nv.calculerResultat(j1);       
+            System.out.println("La valeur de banque est:  " +bq.myCarte.get(0).getValeur());
+            System.out.println("La valeur de banque est:  " +bq.myCarte.get(1).getValeur());
+            System.out.println("Le somme de banque est:   " +bq.calculerSomme());
+            
+            System.out.println("");
+            System.out.println("---------------------------------------");
+            System.out.println("");
+            nv.calculerResultat(j1,bq);
+            System.out.println("---------------------------------------");
+            nv.calculerResultat(j2,bq);
         }
 */
 }
