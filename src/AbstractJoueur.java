@@ -42,7 +42,7 @@ public abstract class AbstractJoueur {
         for(int i=0;i<myCarte.capacity() ;i++){
             somme=somme+myCarte.elementAt(i).getValeur();
         }
-        return somme;
+        return this.somme;
 	}
 
 }

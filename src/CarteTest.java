@@ -19,5 +19,6 @@ public class CarteTest {
 		System.out.println("Valeur : " + uneCarte.getValeur());
 		System.out.println("Enseigne : " + uneCarte.getEnseigne());
 	}
+
 */    
 }
