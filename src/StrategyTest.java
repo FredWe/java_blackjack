@@ -1,5 +1,5 @@
 
-public class CarteTest {
+public class StrategyTest {
 /*
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -20,6 +20,5 @@ public class CarteTest {
 		System.out.println("Valeur : " + uneCarte.getValeur());
 		System.out.println("Enseigne : " + uneCarte.getEnseigne());
 	}
-
-*/    
+*/
 }
