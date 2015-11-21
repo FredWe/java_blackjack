@@ -1,15 +1,10 @@
 import java.util.Vector;
-import java.io.IOException;
 
 public abstract class AbstractJoueur {
 	
-	private Boolean enabledNouvelleCarte; //demander nouvelle carte ou pas
-	public String resultat; //"Win","Lost","Tie" (to Banque)
-
-	public Integer somme;
-
+	private Boolean enabledNouvelleCarte; // Demander nouvelle carte ou pas
+	public String resultat; // "Win", "Lost", "Tie" (to Banque)
 	public Strategy myStrategy;
-
 	public Vector<Carte> myCarte;
     
     /*public AbstractJoueur(){
@@ -19,7 +14,6 @@ public abstract class AbstractJoueur {
 	
 	public AbstractJoueur(Strategy s){
 		this.myCarte = new Vector<Carte>();
-        this.somme=0;
 		this.myStrategy = s;
 	}
 	public void choisirStrategy(String str) throws IllegalArgumentException { //"Aleatoire","Seuil","Humain"
@@ -36,27 +30,13 @@ public abstract class AbstractJoueur {
 			default :
 				throw new IllegalArgumentException("Le Strategie doit etre compris dans {\"Aleatoire\",\"Seuil\",\"Humain\"}");
 		}
-
-        
 	}
-    
 	public void deciderDemanderNouvelleCarte(){
 		try {
-			this.enabledNouvelleCarte = this.myStrategy.deciderDemanderCarte();
-		} catch (IllegalArgumentException | IOException e) {
-			e.printStackTrace();
-			try {
-				this.enabledNouvelleCarte = this.myStrategy.deciderDemanderCarte(this.somme);
-			} catch (IllegalArgumentException | IOException e1) {
-				e1.printStackTrace();
-			}
+			this.enabledNouvelleCarte = this.myStrategy.deciderDemanderCarte(this.calculerSomme());
+		} catch (Exception e1) {
+			e1.printStackTrace();
 		}
-	}
-	public void demanderCarte() {
-        this.enabledNouvelleCarte = true;
-	}
-	public void arreterDeDemanderCarte(){
-		this.enabledNouvelleCarte = false;
 	}
 	public Boolean consulterFlagNouvelleCarte(){
 		return this.enabledNouvelleCarte;
@@ -68,16 +48,14 @@ public abstract class AbstractJoueur {
 	public void setResultat(String s){
 		//TODO
 	}
-	
     public int calculerSomme(){
-        
-        somme=0;
+        Integer somme = 0;
         Carte thisCarte;
-        for(int i=0;i<myCarte.size()  ;i++){
+        for(int i=0; i<myCarte.size(); i++){
             thisCarte = this.myCarte.elementAt(i);
-            somme=somme+thisCarte.getValeur();
+            somme += thisCarte.getValeur();
         }
-        return this.somme;
+        return somme;
 	}
 
 }
