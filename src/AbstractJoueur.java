@@ -71,6 +71,7 @@ public abstract class AbstractJoueur {
 	
     public int calculerSomme(){
         
+        somme=0;
         Carte thisCarte;
         for(int i=0;i<myCarte.size()  ;i++){
             thisCarte = this.myCarte.elementAt(i);
