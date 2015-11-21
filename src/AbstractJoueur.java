@@ -12,16 +12,14 @@ public abstract class AbstractJoueur {
 
 	public Vector<Carte> myCarte;
     
-    public AbstractJoueur(){
+    /*public AbstractJoueur(){
         this.myCarte = new Vector<Carte>();
         this.somme=0;
-    }
+    }*/
 	
-	public AbstractJoueur(){
-		this.myCarte = new Vector<Carte>();
-	}
 	public AbstractJoueur(Strategy s){
 		this.myCarte = new Vector<Carte>();
+        this.somme=0;
 		this.myStrategy = s;
 	}
 	public void choisirStrategy(String str) throws IllegalArgumentException { //"Aleatoire","Seuil","Humain"
