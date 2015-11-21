@@ -2,7 +2,6 @@
 public class CarteTest {
 /*
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 		System.out.println("Hello world, Let's begin\n");
 		Carte uneCarte = new Carte();
 		try{
@@ -20,5 +19,6 @@ public class CarteTest {
 		System.out.println("Valeur : " + uneCarte.getValeur());
 		System.out.println("Enseigne : " + uneCarte.getEnseigne());
 	}
+
 */    
 }

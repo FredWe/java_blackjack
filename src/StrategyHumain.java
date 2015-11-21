@@ -2,8 +2,7 @@ import java.io.*;
 
 public class StrategyHumain implements Strategy {
 
-	@Override
-	public boolean deciderDemanderCarte(Integer somme) throws IOException, IllegalArgumentException {
+	public boolean deciderDemanderCarte() throws IOException, IllegalArgumentException {
 		BufferedReader br = new BufferedReader(new
                 InputStreamReader(System.in));
 		String str;
@@ -16,6 +15,14 @@ public class StrategyHumain implements Strategy {
 			return false;
 		}else {
 			throw new IllegalArgumentException("Entree illegal");
+		}
+	}
+	
+	public boolean deciderDemanderCarte(Integer somme) throws IllegalArgumentException, IOException {
+		try{
+			return this.deciderDemanderCarte();			
+		}catch(Exception e){
+			throw e;
 		}
 	}
 
