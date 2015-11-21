@@ -8,7 +8,6 @@ public class JoueurTest {
         String str=v.getNom();
         System.out.println("le nom de joueur est:" + str);
         
-        
     }
 */
 }
