@@ -1,15 +1,11 @@
-import java.util.Vector;
 import java.util.Scanner;
-import java.util.*;
-
-
 
 public class Joueur extends AbstractJoueur {
 
 	public String nom;
+	private Scanner sc;
     
     public Joueur(){
-        
         this.nom=setNom();
     }
     
@@ -17,7 +13,7 @@ public class Joueur extends AbstractJoueur {
         
         String str;
         System.out.println("Saisir le nom de joueur");
-        Scanner sc= new Scanner(System.in);
+        sc = new Scanner(System.in);
         str=sc.nextLine();
         return str;
     }
