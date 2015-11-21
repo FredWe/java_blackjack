@@ -50,9 +50,9 @@ public class Test {
             System.out.println("");
             
             
-            /* for(int jj=0;jj<52;jj++){
-                System.out.println("La valeur de carte est: " +nvCrop.myCarte.get(jj).getValeur() );
-            }*/
+            // for(int jj=0;jj<52;jj++){
+            //    System.out.println("La valeur de carte est: " +nvCrop.myCarte.get(jj).getValeur() );
+            //}
             
             
             nvCrop.distribuerCarte(j1);

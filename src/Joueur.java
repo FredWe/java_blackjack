@@ -8,11 +8,13 @@ public class Joueur extends AbstractJoueur {
     public Joueur(){
         this.nom=setNom();
     }
+	public Joueur(Strategy s){
+		super(s);
+	}
     
     public String setNom(){
-        
         String str;
-        System.out.println("Saisir le nom de joueur");
+        System.out.println("Saisir le nom de joueur :");
         sc = new Scanner(System.in);
         str=sc.nextLine();
         return str;

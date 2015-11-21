@@ -66,9 +66,8 @@ public abstract class AbstractJoueur {
 		//TODO
 	}
 	public int calculerSomme(){
-        
-        for(int i=0;i<myCarte.capacity() ;i++){
-            somme=somme+myCarte.elementAt(i).getValeur();
+        for(int i=0;i<myCarte.size() ;i++){
+            this.somme += myCarte.elementAt(i).getValeur();
         }
         return this.somme;
 	}
