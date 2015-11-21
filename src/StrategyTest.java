@@ -15,6 +15,7 @@ public class StrategyTest {
 	}
 	
 	public static void main(String[] args) {
+/*
 		System.out.println("Hello world, Let's begin\n");
 		Strategy Strategy1 = new StrategyAleatoire();
 		Strategy Strategy2 = new StrategyHumain();
@@ -74,6 +75,6 @@ public class StrategyTest {
 		uneCarte.setEnseigne("carrEau");
 		System.out.println("Valeur : " + uneCarte.getValeur());
 		System.out.println("Enseigne : " + uneCarte.getEnseigne());
+*/
 	}
-
 }

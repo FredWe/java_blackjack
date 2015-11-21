@@ -10,6 +10,9 @@ public class Test {
         System.out.println("Hello world, Let's begin\n");
         Jeu nv=new Jeu();
         
+        Cropier nvCrop=new Cropier();
+        nvCrop.initCarte();
+        
         // Choisir nombre de personnes.
             
     

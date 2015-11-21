@@ -25,4 +25,16 @@ public class Carte {
 		else
 			throw new IllegalArgumentException("L'enseigne de carte doit etre compris dans {\"Carreau\",\"Coeur\",\"Pique\",\"Trefle\"}");
 	}
+	public Carte(String s, Integer v) throws IllegalArgumentException {
+		try{
+			this.setEnseigne(s);
+			this.setValeur(v);
+		}catch (IllegalArgumentException ie){
+			throw ie;
+		}
+		
+	}
+	public Carte() {
+		// TODO Auto-generated constructor stub
+	}
 }
