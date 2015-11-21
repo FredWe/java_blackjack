@@ -1,10 +1,11 @@
+import java.io.IOException;
 
 public class StrategyTest {
 	
 	public static void testSeuil(Strategy S, Integer seuil){
 		((StrategySeuil) S).setSeuil(seuil);
-		System.out.println("Seuil : " + ((StrategySeuil) S).getSeuil());
 		for (int i = 0; i<25; i++){
+			System.out.println("Seuil : " + ((StrategySeuil) S).getSeuil());
 			System.out.println("Somme comme " + i);
 			try{
 				System.out.println(S.deciderDemanderCarte(i));
@@ -23,10 +24,20 @@ public class StrategyTest {
 		
 		System.out.println("StrategyAleatoire :");
 		for(int i=0;i<5;i++){
-			System.out.println(Strategy1.deciderDemanderCarte());
+			try {
+				System.out.println(Strategy1.deciderDemanderCarte());
+			} catch (IllegalArgumentException | IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 		for(int i=0;i<5;i++){
-			System.out.println(Strategy1.deciderDemanderCarte(i));
+			try {
+				System.out.println(Strategy1.deciderDemanderCarte(i));
+			} catch (IllegalArgumentException | IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 		
 		System.out.println("StrategyHumain :");
@@ -39,7 +50,7 @@ public class StrategyTest {
 		}
 		for(int i=0;i<3;i++){
 			try{
-				System.out.println(Strategy2.deciderDemanderCarte());
+				System.out.println(Strategy2.deciderDemanderCarte(i));
 			}catch(Exception e){
 				System.out.println(e);
 			}
@@ -51,30 +62,10 @@ public class StrategyTest {
 		}catch(Exception e){
 			System.out.println(e);
 		}
-		
-		testSeuil(Strategy3, -1);
-		testSeuil(Strategy3, 20);
-		testSeuil(Strategy3, 21);
-		testSeuil(Strategy3, 100);
-		testSeuil(Strategy3, -1);
-
-}
-		
-		
-		try{
-			uneCarte.setValeur(0);
-		}catch(IllegalArgumentException e){
-	         System.out.println(e);
-	      }
-		try{
-			uneCarte.setEnseigne("toto");
-		}catch(IllegalArgumentException e){
-	         System.out.println(e);
-	      }
-		uneCarte.setValeur(1);
-		uneCarte.setEnseigne("carrEau");
-		System.out.println("Valeur : " + uneCarte.getValeur());
-		System.out.println("Enseigne : " + uneCarte.getEnseigne());
+		Integer[] testSeuil = {-1, 20, 21, 100};
+		for(int i=0; i<testSeuil.length; i++){
+			testSeuil(Strategy3, testSeuil[i]);
+		}
 */
 	}
 }
