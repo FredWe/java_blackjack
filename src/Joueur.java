@@ -3,7 +3,6 @@ import java.util.Scanner;
 public class Joueur extends AbstractJoueur {
 
 	public String nom;
-	private Scanner sc;
     
     /*public Joueur(){
         this.nom=setNom();
@@ -15,8 +14,9 @@ public class Joueur extends AbstractJoueur {
     
     public String setNom(){
         System.out.println("Saisir le nom de joueur :");
-        sc = new Scanner(System.in);
+        Scanner sc = new Scanner(System.in);
         this.nom = sc.nextLine();
+        sc.close();
         return this.nom;
     }
     public String getNom(){
