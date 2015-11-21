@@ -12,6 +12,11 @@ public abstract class AbstractJoueur {
 	public Strategy myStrategy;
 
 	public Vector<Carte> myCarte;
+    
+    public AbstractJoueur(){
+        this.myCarte = new Vector<Carte>();
+        this.somme=0;
+    }
 	
 
 	public void choisirStrategy(String str) throws IllegalArgumentException { //"Aleatoire","Seuil","Humain"
@@ -39,8 +44,11 @@ public abstract class AbstractJoueur {
 
 	public int calculerSomme(){
         
-        for(int i=0;i<myCarte.capacity() ;i++){
-            somme=somme+myCarte.elementAt(i).getValeur();
+        Carte thisCarte;
+        for(int i=0;i<myCarte.size()  ;i++){
+            
+            thisCarte = this.myCarte.elementAt(i);
+            somme=somme+thisCarte.getValeur();
         }
         return this.somme;
 	}

@@ -14,7 +14,7 @@ public class Jeu {
 
 	public Vector myJoueur;
     
-    public void ChoisirPersonne(){
+   /* public void ChoisirPersonne(){
         
         int i;
         System.out.println("choisir combien personne participe BlackJack");
@@ -39,7 +39,7 @@ public class Jeu {
                 break;
                 
         }
-    }
+    }*/
     
     public void calculerResultat(Joueur v){
 

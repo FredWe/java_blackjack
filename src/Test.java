@@ -4,7 +4,7 @@ import java.util.*;
 
 
 public class Test {
-/*
+
         public static void main(String[] args) {
         
         System.out.println("Hello world, Let's begin\n");
@@ -54,10 +54,18 @@ public class Test {
                 System.out.println("La valeur de carte est: " +nvCrop.myCarte.get(jj).getValeur() );
             }*/
             
-            
+            nvCrop.initCarte();
             nvCrop.distribuerCarte(j1);
             nvCrop.distribuerCarte(j2);
             nvCrop.distribuerCarte(j2);
+            nvCrop.distribuerCarte(bq);
+            nvCrop.distribuerCarte(bq);
+            
+            System.out.println("La valeur de carte est: " +j2.myCarte.get(0).getValeur());
+            System.out.println("La valeur de carte est: " +j2.myCarte.get(1).getValeur());
+            System.out.println("Le somme de carte est: " +j2.calculerSomme());
+            
+            
             nv.calculerResultat(j1);
             nv.calculerResultat(j2);
             
@@ -76,6 +84,6 @@ public class Test {
             //nv.calculerResultat(j1);
             
         }
-*/
+
 }
 
