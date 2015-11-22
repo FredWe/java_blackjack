@@ -12,7 +12,9 @@ public abstract class AbstractJoueur {
         this.myCarte = new Vector<Carte>();
         this.somme=0;
     }*/
-	
+	public Vector<Carte> getMyCarte(){
+		return this.myCarte;
+	}
 	public AbstractJoueur(Strategy s){
 		this.myCarte = new Vector<Carte>();
 		this.myStrategy = s;

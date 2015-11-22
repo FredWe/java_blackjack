@@ -3,13 +3,22 @@ import java.util.*;
 
 public class Cropier {
 
-  public Vector<Carte>  myCarte;
+  public Vector<Carte> myCarte;
 
+  public Vector<Carte> getMyCarte(){
+	  return this.myCarte;
+  }
   public void distribuerCarte(AbstractJoueur v){
       //int i,t;
       int i;
       Random rand = new Random();
-      i = rand.nextInt(this.myCarte.size() - 1); // To generate a random number between [0, myCarte.size - 1]
+      if(this.myCarte.size() > 1){
+    	  i = rand.nextInt(this.myCarte.size() - 1); // To generate a random number between [0, myCarte.size - 1]
+      }else if(this.myCarte.size() == 1){
+    	  i = 0;
+      }else{
+    	  throw new IllegalArgumentException("Cropier : I have no more cards !");
+      }
       //t=v.myCarte.capacity();
       //v.myCarte.setSize(t+1);
       //System.out.println("la valeur de rand" + i) ;
@@ -19,7 +28,11 @@ public class Cropier {
       System.out.println("VV : " + v) ;
       System.out.println("V myCarte : " + v.myCarte) ;*/
       v.myCarte.addElement(thisCarte);
-      this.myCarte.removeElement(i);
+      if(this.myCarte.size() > 1){
+    	  this.myCarte.removeElementAt(i);
+      }else{
+    	  this.myCarte.clear();
+      }
   }
   
   public void initCarte(){
