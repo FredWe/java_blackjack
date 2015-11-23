@@ -57,7 +57,8 @@ public class Main {
 		}
             System.out.println("Vous voulez continuer ce jeu? "
             		+ "oui tapez 'oui' Non tapez 'non'");
-            Scanner sct = new Scanner(System.in);
+            @SuppressWarnings("resource")
+			Scanner sct = new Scanner(System.in);
             str1 = sct.nextLine();
             
             if(str1.equals("oui"))   
