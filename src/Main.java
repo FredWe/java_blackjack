@@ -5,7 +5,8 @@ public class Main {
 	public static void main(String[] args) {
 	
         int nbp=0;
-        String str;
+        String str,str1;
+        boolean tp=true;
         
         System.out.println("Bienvenu notre jeu BlackJack 21");
         System.out.println("      Weidong & Li Chenggen     ");
@@ -14,6 +15,10 @@ public class Main {
         System.out.println("");
         System.out.println("1) Choisir nombre de personnes, saisir le chiffre.");
         System.out.println("2) Choisir Strategy taper 'Seuil','Aleatoire','Humain'\n\n");
+        
+        
+        
+        while(tp){
         
         System.out.println("Saisir Nombre de joueurs :");
         @SuppressWarnings("resource")
@@ -51,6 +56,18 @@ public class Main {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+            System.out.println("Vous voulez continuer ce jeu? oui tapez 'oui' Non tapez 'non'");
+            Scanner sct = new Scanner(System.in);
+            str1 = sct.nextLine();
+            
+            if(str1 == "oui")   tp=true;
+            else tp=false;
+            
+            System.out.println("la valeur de str1 est  "+str1);
+            System.out.println("la valeur de tp est  "+tp);
+    
+        }
+       
         
         
 }
