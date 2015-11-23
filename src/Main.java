@@ -53,18 +53,20 @@ public class Main {
         try {
 			nv.showResultat();
 		} catch (NoSuchFieldException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-            System.out.println("Vous voulez continuer ce jeu? oui tapez 'oui' Non tapez 'non'");
+            System.out.println("Vous voulez continuer ce jeu? "
+            		+ "oui tapez 'oui' Non tapez 'non'");
             Scanner sct = new Scanner(System.in);
             str1 = sct.nextLine();
             
-            if(str1 == "oui")   tp=true;
-            else tp=false;
+            if(str1.equals("oui"))   
+            	tp=true;
+            else 
+            	tp=false;
             
-            System.out.println("la valeur de str1 est  "+str1);
-            System.out.println("la valeur de tp est  "+tp);
+            System.out.println("la valeur de str1 est  " + str1);
+            System.out.println("la valeur de tp est  " + tp + "\n\n");
     
         }
        
