@@ -3,21 +3,19 @@ import java.util.Scanner;
 
 public abstract class AbstractJoueur {
 	
-	private Boolean enabledNouvelleCarte; // Demander nouvelle carte ou pas
+	public Boolean enabledNouvelleCarte; // Demander nouvelle carte ou pas
 	public String resultat; // "Win", "Lost", "Tie" (to Banque)
 	public Strategy myStrategy;
 	public Vector<Carte> myCarte;
     
-    /*public AbstractJoueur(){
-        this.myCarte = new Vector<Carte>();
-        this.somme=0;
-    }*/
-	public Vector<Carte> getMyCarte(){
-		return this.myCarte;
-	}
+    
 	public AbstractJoueur(Strategy s){
 		this.myCarte = new Vector<Carte>();
 		this.myStrategy = s;
+		this.enabledNouvelleCarte = true;
+	}
+	public Vector<Carte> getMyCarte(){
+		return this.myCarte;
 	}
 	public void choisirStrategy(String str) throws IllegalArgumentException { //"Aleatoire","Seuil","Humain"
 		switch (str.toUpperCase()){
@@ -28,7 +26,6 @@ public abstract class AbstractJoueur {
 				System.out.println("Entrer une Seuil pour decider Demander ou Abandonner une nouvelle carte.");
 				Scanner sc = new Scanner(System.in);
 				Integer seuil = sc.nextInt();
-				sc.close();
 				this.myStrategy = new StrategySeuil(seuil);
 				break;
 			case "HUMAIN" :
@@ -54,17 +51,20 @@ public abstract class AbstractJoueur {
 	public void setResultat(String s){
 		if (s.equalsIgnoreCase("Win") 
 				|| s.equalsIgnoreCase("Lost") 
-				|| s.equalsIgnoreCase("Tie"))
+				|| s.equalsIgnoreCase("Tie")) {
 			this.resultat = s.toUpperCase();
-		else
+		}else {
 			throw new IllegalArgumentException("Le resultat doit etre compris dans {\"Win\", \"Lost\", \"Tie\"\"}");
+		}
 	}
     public int calculerSomme(){
         Integer somme = 0;
         Carte thisCarte;
         for(int i=0; i<myCarte.size(); i++){
             thisCarte = this.myCarte.elementAt(i);
-            somme += thisCarte.getValeur();
+            Integer val = thisCarte.getValeur();
+            if(val > 10) val = 10;
+            somme += val;
         }
         return somme;
 	}

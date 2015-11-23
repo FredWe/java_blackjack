@@ -14,9 +14,9 @@ public class StrategyTest {
 			}			
 		}
 	}
-	
-	public static void main(String[] args) {
+
 /*
+	public static void main(String[] args) {	
 		System.out.println("Hello world, Let's begin\n");
 		Strategy Strategy1 = new StrategyAleatoire();
 		Strategy Strategy2 = new StrategyHumain();
@@ -45,6 +45,6 @@ public class StrategyTest {
 		for(int i=0; i<testSeuil.length; i++){
 			testSeuil(Strategy3, testSeuil[i]);
 		}
-*/
 	}
+*/
 }

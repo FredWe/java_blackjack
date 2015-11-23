@@ -1,15 +1,20 @@
 import java.util.Vector;
 import java.util.*;
 
-public class Cropier {
+public class Cropier implements Cloneable{
 
   public Vector<Carte> myCarte;
 
+  public Cropier(){
+	  this.myCarte = new Vector<Carte>(52);
+  }
   public Vector<Carte> getMyCarte(){
 	  return this.myCarte;
   }
+
+  
   public void distribuerCarte(AbstractJoueur v){
-      //int i,t;
+   
       int i;
       Random rand = new Random();
       if(this.myCarte.size() > 1){
@@ -19,14 +24,9 @@ public class Cropier {
       }else{
     	  throw new IllegalArgumentException("Cropier : I have no more cards !");
       }
-      //t=v.myCarte.capacity();
-      //v.myCarte.setSize(t+1);
-      //System.out.println("la valeur de rand" + i) ;
+
       Carte thisCarte = this.myCarte.elementAt(i);
-     /* System.out.println("E : " + thisCarte.getEnseigne()) ;
-      System.out.println("V : " + thisCarte.getValeur()) ;
-      System.out.println("VV : " + v) ;
-      System.out.println("V myCarte : " + v.myCarte) ;*/
+ 
       v.myCarte.addElement(thisCarte);
       if(this.myCarte.size() > 1){
     	  this.myCarte.removeElementAt(i);
