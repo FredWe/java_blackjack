@@ -13,9 +13,9 @@ public class Main {
         System.out.println("----------------------------------");
         System.out.println("");
         System.out.println("1) Choisir nombre de personnes, saisir le chiffre.");
-        System.out.println("2) Choisir Strategy taper 'Seuil','Aleatoire','Humain'");
+        System.out.println("2) Choisir Strategy taper 'Seuil','Aleatoire','Humain'\n\n");
         
-        
+        System.out.println("saisir Nombre de joueurs :");
         @SuppressWarnings("resource")
 		Scanner sc = new Scanner(System.in);
         nbp = sc.nextInt();
@@ -23,7 +23,10 @@ public class Main {
         Vector<Joueur> vj = new Vector<Joueur>();
         
         for(int i=0; i<nbp; i++){
+        	System.out.println("========Joueur " + (i+1) + "========");
             Joueur j = new Joueur(new StrategyAleatoire());
+            System.out.println("Saisir le type du Strategie du Joueur " 
+            		+ (i+1) + " : ('Seuil', 'Aleatoire' ou 'Humain')");
             @SuppressWarnings("resource")
 			Scanner sct = new Scanner(System.in);
             str = sct.nextLine();
