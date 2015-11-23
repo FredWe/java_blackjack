@@ -2,6 +2,9 @@ public class StrategySeuil implements Strategy {
 
 	private Integer seuil;
 	
+	public StrategySeuil(Integer s){
+		this.setSeuil(s);
+	}
 	public void setSeuil(Integer s) {
 		this.seuil = s;
 	}

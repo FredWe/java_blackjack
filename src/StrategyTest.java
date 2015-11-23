@@ -14,9 +14,9 @@ public class StrategyTest {
 			}			
 		}
 	}
-	
-	public static void main(String[] args) {
+
 /*
+	public static void main(String[] args) {	
 		System.out.println("Hello world, Let's begin\n");
 		Strategy Strategy1 = new StrategyAleatoire();
 		Strategy Strategy2 = new StrategyHumain();
@@ -25,29 +25,13 @@ public class StrategyTest {
 		System.out.println("StrategyAleatoire :");
 		for(int i=0;i<5;i++){
 			try {
-				System.out.println(Strategy1.deciderDemanderCarte());
-			} catch (IllegalArgumentException | IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		}
-		for(int i=0;i<5;i++){
-			try {
 				System.out.println(Strategy1.deciderDemanderCarte(i));
 			} catch (IllegalArgumentException | IOException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
 		
 		System.out.println("StrategyHumain :");
-		for(int i=0;i<3;i++){
-			try{
-				System.out.println(Strategy2.deciderDemanderCarte());
-			}catch(Exception e){
-				System.out.println(e);
-			}
-		}
 		for(int i=0;i<3;i++){
 			try{
 				System.out.println(Strategy2.deciderDemanderCarte(i));
@@ -57,15 +41,10 @@ public class StrategyTest {
 		}
 		
 		System.out.println("StrategySeuil :");
-		try{
-			System.out.println(Strategy3.deciderDemanderCarte());
-		}catch(Exception e){
-			System.out.println(e);
-		}
 		Integer[] testSeuil = {-1, 20, 21, 100};
 		for(int i=0; i<testSeuil.length; i++){
 			testSeuil(Strategy3, testSeuil[i]);
 		}
-*/
 	}
+*/
 }

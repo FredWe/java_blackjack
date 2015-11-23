@@ -1,7 +1,6 @@
 public class Carte {
 
 	private Integer valeur;
-
 	private String enseigne;
 	
 	public Integer getValeur() {
@@ -32,7 +31,6 @@ public class Carte {
 		}catch (IllegalArgumentException ie){
 			throw ie;
 		}
-		
 	}
 	public Carte() {
 		// TODO Auto-generated constructor stub

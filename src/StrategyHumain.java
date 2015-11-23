@@ -2,7 +2,6 @@ import java.io.*;
 
 public class StrategyHumain implements Strategy {
 
-	@Override
 	public boolean deciderDemanderCarte() throws IOException, IllegalArgumentException {
 		BufferedReader br = new BufferedReader(new
                 InputStreamReader(System.in));

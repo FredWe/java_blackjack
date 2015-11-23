@@ -1,93 +1,123 @@
-import java.util.Vector;
-import java.util.Scanner;
 import java.util.*;
-
-
 
 public class Jeu {
 
-	public Cropier cropier;
-
-	public Banque banque;
-    
-	public Vector myJoueur;
+	public Cropier myCropier;
+	public Banque myBanque;
+	public Vector<Joueur> myJoueur;
+	public Boolean flagContinuer;
     
     public Jeu(){
-        Banque  banque=new Banque(new StrategyAleatoire());
-        Cropier cropier=new Cropier();
-        Vector  myJoueur=new Vector();
-        
-        
+        this.myBanque = null;
+        this.myCropier = null;
+        this.myJoueur = new Vector<Joueur>();
+        this.flagContinuer = true;
+    }
+    public void joinMember(Object element) {
+    	if(element.getClass().getSimpleName() == "Cropier") {
+    		this.myCropier = (Cropier) element;
+    	}else if(element.getClass().getSimpleName() == "Banque") {
+    		this.myBanque = (Banque) element;
+    	}else if(element.getClass().getSimpleName() == "Joueur") {
+    		this.myJoueur.addElement((Joueur) element);
+    	}else {
+    		throw new IllegalArgumentException("Don't join an element of a whatever type !!\n"
+    				+ "Argument de join() doit etre compris dans {\"Cropier\", \"Banque\", \"Joueur\"}");
+    	}
+    }
+    public void initJeu(){
+		Iterator<Joueur> iter = this.myJoueur.iterator();
+		Joueur thisJoueur;
+		while(iter.hasNext()){
+			thisJoueur = iter.next();
+			thisJoueur.getMyCarte().clear();
+		}
+		this.myBanque.getMyCarte().clear();
+    	this.myCropier.initCarte();
+    	for(int i=0; i<2; i++){
+    		iter = this.myJoueur.iterator();
+    		while(iter.hasNext()){
+    			thisJoueur = iter.next();
+    			this.myCropier.distribuerCarte(thisJoueur);
+    		}
+    		this.myCropier.distribuerCarte(this.myBanque);
+    	}
+    }
+    public void tourJeu(){
+		Iterator<Joueur> iter = this.myJoueur.iterator();
+		Joueur thisJoueur;
+		Boolean tempFlag = false;
+		while(iter.hasNext()) {
+			thisJoueur = iter.next();
+			thisJoueur.deciderDemanderNouvelleCarte();
+			if(thisJoueur.consulterFlagNouvelleCarte()) {
+				this.myCropier.distribuerCarte(thisJoueur);
+			}
+			tempFlag = tempFlag || thisJoueur.consulterFlagNouvelleCarte();
+		}
+		this.myBanque.deciderDemanderNouvelleCarte();
+		if(this.myBanque.consulterFlagNouvelleCarte()) {
+			this.myCropier.distribuerCarte(this.myBanque);
+		}
+		tempFlag = tempFlag || this.myBanque.consulterFlagNouvelleCarte();
+		this.flagContinuer = tempFlag;
+    }
+    public void effectuerJeu() {
+    	while(this.flagContinuer){
+    		this.tourJeu();
+    	}
+		Iterator<Joueur> iter = this.myJoueur.iterator();
+		Joueur thisJoueur;
+		while(iter.hasNext()) {
+			thisJoueur = iter.next();
+			try {
+				this.calculerResultat(thisJoueur, this.myBanque);
+			} catch (NoSuchMethodException e) {
+				e.printStackTrace();
+			}
+		}
+    }
+    public void showResultat() throws NoSuchFieldException{
+    	System.out.println("\nLe somme de myBanque est :\t" + this.myBanque.calculerSomme());
+		Iterator<Joueur> iter = this.myJoueur.iterator();
+		Joueur thisJoueur;
+		while(iter.hasNext()){
+			thisJoueur = iter.next();
+			System.out.println("\nLe somme de " + thisJoueur.getNom() + 
+					" est :\t" + thisJoueur.calculerSomme());
+			String result = thisJoueur.getResultat();
+			if (result.equalsIgnoreCase("Win")) {
+				System.out.println("\nJoueur " + thisJoueur.getNom() + " a gagné.");
+			}else if (result.equalsIgnoreCase("Lost")) {
+				System.out.println("\nVous avez perdu ->_-> " + thisJoueur.getNom());
+			}else if (result.equalsIgnoreCase("Tie")) {
+				System.out.println("\nJoueur " + thisJoueur.getNom()+ " et Banque" + " fait Match NULL.");
+			}else {
+				throw new NoSuchFieldException("No such Resultat, Resultat doit etre compris dans"
+						+ "{\"Win\", \"Lost\", \"Tie\"}");
+			}
+		}
     }
     
-   /* public void ChoisirPersonne(){
-        
-        int i;
-        System.out.println("choisir combien personne participe BlackJack");
-        System.out.println("choix 1: Une personne");
-        System.out.println("choix 2: Deux personne");
-        Scanner sc= new Scanner(System.in);
-        i=sc.nextInt();
-
-        switch(i){
-                
-            case 1:
-                System.out.println("Vous avez choisi une personnes");
-                Joueur v= new Joueur();
-                break;
-            case 2:
-                System.out.println("Vous avez choisi deux personnes");
-                Joueur v1= new Joueur();
-                Joueur v2= new Joueur();
-                break;
-            default:
-                System.out.println("Bien saisir le chiffre svp.");
-                break;
-                
-        }
-    }*/
-    
-    public void calculerResultat(Joueur v,Banque banque){
-        
-        
-        
-       /* System.out.println("Tester calculerResultat");
-        System.out.println(banque);
-        System.out.println("la valeur banque"+ (banque.myCarte.get(0)).getValeur());
-        System.out.println("Le Somme: " +banque.calculerSomme());*/
-        
-        
-        if(banque.calculerSomme()>21){
-            if(v.calculerSomme()<=21){
-                System.out.println(" Joueur " + v.getNom() + " a gagné");
-                v.resultat="Win";
-                
+    public void calculerResultat(Joueur v, Banque myB) throws NoSuchMethodException{	
+          
+        if(myB.calculerSomme() > 21) {
+            if(v.calculerSomme() <= 21) {
+                v.setResultat("Win");
+            }else {
+                v.setResultat("Tie");
             }
-            else{
-                System.out.println(v.getNom()+ " et Banque" + " sont Match NULL");
-                 v.resultat="Tie";
+        }else {  
+            if(v.calculerSomme() == myB.calculerSomme()) {
+                v.setResultat("Tie");
+            }else if(v.calculerSomme() < myB.calculerSomme() || v.calculerSomme() > 21) {
+                v.setResultat("Lost");
+            }else if(v.calculerSomme() > myB.calculerSomme()) {
+                v.setResultat("Win");
+            }else {
+            	throw new NoSuchMethodException("Not a handled situation");
             }
-        }
-        else{
-            
-            if(v.calculerSomme() == banque.calculerSomme()){
-                System.out.println(v.getNom()+ " et Banque" +" sont Match NULL.");
-                v.resultat="Tie";
-            }
-            else if(v.calculerSomme()<banque.calculerSomme() || v.calculerSomme()>21){
-                System.out.println(" Vous avez perdu " + v.getNom());
-                v.resultat="Lost";
-                
-            }
-            else if((v.calculerSomme()<=21) && (v.calculerSomme()>banque.calculerSomme())){
-                System.out.println(" Joueur " + v.getNom() + " a gagné");
-                v.resultat="Win";
-            }
-            
-            else return;
-                
-        }
-            
+        }          
     }
     
 

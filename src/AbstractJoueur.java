@@ -1,26 +1,21 @@
 import java.util.Vector;
-import java.io.IOException;
+import java.util.Scanner;
 
 public abstract class AbstractJoueur {
 	
-	private Boolean enabledNouvelleCarte; //demander nouvelle carte ou pas
-	public String resultat; //"Win","Lost","Tie" (to Banque)
-
-	public Integer somme;
-
+	public Boolean enabledNouvelleCarte; // Demander nouvelle carte ou pas
+	public String resultat; // "Win", "Lost", "Tie" (to Banque)
 	public Strategy myStrategy;
-
 	public Vector<Carte> myCarte;
     
-    /*public AbstractJoueur(){
-        this.myCarte = new Vector<Carte>();
-        this.somme=0;
-    }*/
-	
+    
 	public AbstractJoueur(Strategy s){
 		this.myCarte = new Vector<Carte>();
-        this.somme=0;
 		this.myStrategy = s;
+		this.enabledNouvelleCarte = true;
+	}
+	public Vector<Carte> getMyCarte(){
+		return this.myCarte;
 	}
 	public void choisirStrategy(String str) throws IllegalArgumentException { //"Aleatoire","Seuil","Humain"
 		switch (str.toUpperCase()){
@@ -28,7 +23,10 @@ public abstract class AbstractJoueur {
 				this.myStrategy = new StrategyAleatoire();
 				break;
 			case "SEUIL" :
-				this.myStrategy = new StrategySeuil();
+				System.out.println("Entrer une Seuil pour decider Demander ou Abandonner une nouvelle carte.");
+				Scanner sc = new Scanner(System.in);
+				Integer seuil = sc.nextInt();
+				this.myStrategy = new StrategySeuil(seuil);
 				break;
 			case "HUMAIN" :
 				this.myStrategy = new StrategyHumain();
@@ -36,48 +34,39 @@ public abstract class AbstractJoueur {
 			default :
 				throw new IllegalArgumentException("Le Strategie doit etre compris dans {\"Aleatoire\",\"Seuil\",\"Humain\"}");
 		}
-
-        
 	}
-    
 	public void deciderDemanderNouvelleCarte(){
 		try {
-			this.enabledNouvelleCarte = this.myStrategy.deciderDemanderCarte();
-		} catch (IllegalArgumentException | IOException e) {
-			e.printStackTrace();
-			try {
-				this.enabledNouvelleCarte = this.myStrategy.deciderDemanderCarte(this.somme);
-			} catch (IllegalArgumentException | IOException e1) {
-				e1.printStackTrace();
-			}
+			this.enabledNouvelleCarte = this.myStrategy.deciderDemanderCarte(this.calculerSomme());
+		} catch (Exception e1) {
+			e1.printStackTrace();
 		}
-	}
-	public void demanderCarte() {
-        this.enabledNouvelleCarte = true;
-	}
-	public void arreterDeDemanderCarte(){
-		this.enabledNouvelleCarte = false;
 	}
 	public Boolean consulterFlagNouvelleCarte(){
 		return this.enabledNouvelleCarte;
 	}
 	public String getResultat(){
-		//TODO
-		return "toto";
+		return this.resultat;
 	}
 	public void setResultat(String s){
-		//TODO
+		if (s.equalsIgnoreCase("Win") 
+				|| s.equalsIgnoreCase("Lost") 
+				|| s.equalsIgnoreCase("Tie")) {
+			this.resultat = s.toUpperCase();
+		}else {
+			throw new IllegalArgumentException("Le resultat doit etre compris dans {\"Win\", \"Lost\", \"Tie\"\"}");
+		}
 	}
-	
     public int calculerSomme(){
-        
-        somme=0;
+        Integer somme = 0;
         Carte thisCarte;
-        for(int i=0;i<myCarte.size()  ;i++){
+        for(int i=0; i<myCarte.size(); i++){
             thisCarte = this.myCarte.elementAt(i);
-            somme=somme+thisCarte.getValeur();
+            Integer val = thisCarte.getValeur();
+            if(val > 10) val = 10;
+            somme += val;
         }
-        return this.somme;
+        return somme;
 	}
 
 }
