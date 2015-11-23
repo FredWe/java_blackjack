@@ -49,12 +49,15 @@ public class Jeu {
 		Boolean tempFlag = false;
 		while(iter.hasNext()) {
 			thisJoueur = iter.next();
+			System.out.println("\n\n" + thisJoueur.getNom() + " :");
+			this.showCarte(thisJoueur);
 			thisJoueur.deciderDemanderNouvelleCarte();
 			if(thisJoueur.consulterFlagNouvelleCarte()) {
 				this.myCropier.distribuerCarte(thisJoueur);
 			}
 			tempFlag = tempFlag || thisJoueur.consulterFlagNouvelleCarte();
 		}
+		System.out.println("Banque decider ...");
 		this.myBanque.deciderDemanderNouvelleCarte();
 		if(this.myBanque.consulterFlagNouvelleCarte()) {
 			this.myCropier.distribuerCarte(this.myBanque);
@@ -98,9 +101,7 @@ public class Jeu {
 			}
 		}
     }
-    
     public void calculerResultat(Joueur v, Banque myB) throws NoSuchMethodException{	
-          
         if(myB.calculerSomme() > 21) {
             if(v.calculerSomme() <= 21) {
                 v.setResultat("Win");
@@ -119,6 +120,17 @@ public class Jeu {
             }
         }          
     }
-    
-
+	public void showCarte(AbstractJoueur aj){
+		System.out.println("Nombre de Cartes en possesion : " + 
+				aj.getMyCarte().size());
+		Iterator<Carte> iter = aj.getMyCarte().iterator();
+		Carte thisCarte;
+		while(iter.hasNext()){
+			thisCarte = iter.next();
+			System.out.println("Index de la Carte : " + 
+					aj.getMyCarte().indexOf(thisCarte));
+			System.out.println(thisCarte.getEnseigne() + 
+					" " + thisCarte.getValeur());
+		}
+	}
 }

@@ -15,7 +15,7 @@ public class Main {
         System.out.println("1) Choisir nombre de personnes, saisir le chiffre.");
         System.out.println("2) Choisir Strategy taper 'Seuil','Aleatoire','Humain'\n\n");
         
-        System.out.println("saisir Nombre de joueurs :");
+        System.out.println("Saisir Nombre de joueurs :");
         @SuppressWarnings("resource")
 		Scanner sc = new Scanner(System.in);
         nbp = sc.nextInt();
