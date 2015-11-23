@@ -1,8 +1,6 @@
 import java.util.Vector;
 import java.util.Scanner;
 
-
-
 public class Main {
 	public static void main(String[] args) {
 	
@@ -18,14 +16,16 @@ public class Main {
         System.out.println("2) Choisir Strategy taper 'Seuil','Aleatoire','Humain'");
         
         
-        Scanner sc = new Scanner(System.in);
+        @SuppressWarnings("resource")
+		Scanner sc = new Scanner(System.in);
         nbp = sc.nextInt();
         
         Vector<Joueur> vj = new Vector<Joueur>();
         
         for(int i=0; i<nbp; i++){
             Joueur j = new Joueur(new StrategyAleatoire());
-            Scanner sct = new Scanner(System.in);
+            @SuppressWarnings("resource")
+			Scanner sct = new Scanner(System.in);
             str = sct.nextLine();
             j.choisirStrategy(str);
             vj.addElement(j);
@@ -42,7 +42,12 @@ public class Main {
         }
         nv.initJeu();
 		nv.effectuerJeu();
-        nv.showResultat();
+        try {
+			nv.showResultat();
+		} catch (NoSuchFieldException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
         
         
 }
