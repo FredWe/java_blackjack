@@ -1,13 +1,24 @@
 import java.util.Vector;
 import java.util.*;
 
-public class Cropier {
+public class Cropier implements Cloneable{
 
   public Vector<Carte> myCarte;
 
+  public Cropier(){
+	  this.myCarte = new Vector<Carte>(52);
+  }
   public Vector<Carte> getMyCarte(){
 	  return this.myCarte;
   }
+  /*
+  @SuppressWarnings("unchecked")
+  public Cropier clone(){
+	  Cropier crop = new Cropier();
+	  crop.myCarte = (Vector<Carte>) this.myCarte.clone();
+	  return crop;
+  }
+  */
   public void distribuerCarte(AbstractJoueur v){
       //int i,t;
       int i;

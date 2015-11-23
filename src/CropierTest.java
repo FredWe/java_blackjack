@@ -15,7 +15,7 @@ public class CropierTest {
 					" " + thisCarte.getValeur());
 		}
 	}
-/*	
+/*
 	public static void main(String[] args) {
 		System.out.println("Hello world, Let's begin\n");
 		Cropier crop = new Cropier();
@@ -23,18 +23,26 @@ public class CropierTest {
 		showCarte(crop.getMyCarte());
 		Banque banq = new Banque(new StrategyAleatoire());
 		showCarte(banq.getMyCarte());
-		crop.distribuerCarte(banq);
-		showCarte(crop.getMyCarte());
-		showCarte(banq.getMyCarte());
-		for(int i=0; i<53; i++){
+		
+		for(int i=0; i<54; i++){
+			System.out.println("\n\nThis is Round " + i + "--->");
 			try{
 				crop.distribuerCarte(banq);
 			}catch(Exception e){
 				System.out.println(e);
 			}
+			System.out.println("\ncroq show Carte : ");
+			showCarte(crop.getMyCarte());
+			System.out.println("\nbanq show Carte : ");
+			showCarte(banq.getMyCarte());
 		}
-		showCarte(crop.getMyCarte());
-		showCarte(banq.getMyCarte());
+		
+		// crop.initCarte();
+		// System.out.println("\n" + crop);
+		// showCarte(crop.getMyCarte());
+		// Cropier crop0 = crop.clone();
+		// System.out.println("\n" + crop0);
+		// showCarte(crop0.getMyCarte());
 	}
 */
 }
